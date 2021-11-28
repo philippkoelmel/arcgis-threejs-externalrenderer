@@ -1,7 +1,21 @@
 {
   "name": "@philippkoelmel/arcgis-threejs-externalrenderer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
+  "homepage": "https://github.com/philippkoelmel/arcgis-threejs-externalrenderer",
+  "keywords": [
+    "ArcGIS",
+    "three",
+    "webgl",
+    "webgl2",
+    "three.js",
+    "javascript",
+    "map",
+    "3D",
+    "visualization",
+    "spatial"
+  ],
+  "author": "philippkoelmel",
   "description": "Takes away the boilerplate from integrating Three.js to ArcGIS",
   "scripts": {
     "build": "rm -rf dist/* && rollup -c && yarn run build:dts",
