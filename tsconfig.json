@@ -1,0 +1,19 @@
+{
+  "strict": true,
+  "target": "esnext",
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es5",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "outDir": "./dist"
+  }
+}

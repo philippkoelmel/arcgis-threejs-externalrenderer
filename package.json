@@ -1,0 +1,26 @@
+{
+  "name": "@philippkoelmel/arcgis-threejs-externalrenderer",
+  "version": "1.0.1",
+  "license": "MIT",
+  "description": "Takes away the boilerplate from integrating Three.js to ArcGIS",
+  "scripts": {
+    "build": "rm -rf dist/* && rollup -c && yarn run build:dts",
+    "build:dts": "tsc -p tsconfig-declaration.json --outDir dist/",
+    "watch": "rollup -cw"
+  },
+  "main": "dist/index.js",
+  "jsnext:main": "dist/index.es.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "rollup": "^2.60.1",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "dependencies": {
+    "@arcgis/core": "^4.21.2",
+    "@types/three": "^0.134.0",
+    "three": "^0.135.0"
+  }
+}
