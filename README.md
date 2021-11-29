@@ -10,6 +10,8 @@ npm install @philippkoelmel/arcgis-threejs-externalrenderer
 
 ## Usage
 
+Take a look at the [example](./example).
+
 This module exposes a convenient wrapper around ArcGIS's [externalRenderers](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-3d-externalRenderers.html) and an interface which you implement to manage your Three.js scene.
 
 Let us implement the [interface ExternalRendererThreeCallback](./src/ExternalRendererThreeCallback.ts) first:
