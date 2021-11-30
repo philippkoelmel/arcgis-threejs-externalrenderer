@@ -18,7 +18,7 @@
   "author": "philippkoelmel",
   "description": "Takes away the boilerplate from integrating Three.js to ArcGIS",
   "scripts": {
-    "build": "rm -rf dist/* && rollup -c && yarn run build:dts",
+    "build": "rm -rf dist/* && rollup -c && npm run build:dts",
     "build:dts": "tsc -p tsconfig-declaration.json --outDir dist/",
     "watch": "rollup -cw"
   },
