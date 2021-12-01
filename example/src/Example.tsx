@@ -1,21 +1,3 @@
-# Arcgis three.js external renderer
-
-Takes away the boilerplate from integrating Three.js to ArcGIS. See a the [example](./example) running live [here](https://philippkoelmel.github.io/arcgis-threejs-externalrenderer/).
-
-## Install
-
-```bash
-npm install @philippkoelmel/arcgis-threejs-externalrenderer
-```
-
-## Usage
-
-The code here is from the [example](./example).
-
-This module exposes a convenient wrapper around ArcGIS's [externalRenderers](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-3d-externalRenderers.html) and an interface which you implement to manage your Three.js scene.
-
-Let us implement the [interface ExternalRendererThreeCallback](./src/ExternalRendererThreeCallback.ts) first:
-```typescript
 import * as externalRenderers from "@arcgis/core/views/3d/externalRenderers";
 import { WebGLRenderer, Scene, Matrix4, BoxGeometry, Mesh, Clock, MathUtils, MeshStandardMaterial, Material, BufferGeometry } from "three";
 import SpatialReference from "@arcgis/core/geometry/SpatialReference"
@@ -82,55 +64,3 @@ class Example implements ExternalRendererThreeCallback {
 }
 
 export default Example;
-```
-This will create a rotating red box on the ground.
-
-Now you need to tell ArcGIS to execute this implementation, here an example for that:
-```typescript
-import Map from "@arcgis/core/Map";
-import SceneView from "@arcgis/core/views/SceneView";
-import config from "@arcgis/core/config";
-import Example from './Example';
-import { ExternalRendererThree } from "@philippkoelmel/arcgis-threejs-externalrenderer";
-
-[...]
-    const map = new Map({
-      basemap: "arcgis-topographic",
-      ground: "world-elevation"
-    });
-
-    const view = new SceneView({
-      container: "arcgis_view",
-      map: map,
-      viewingMode: "global",
-      camera: {
-        position: {
-          x: -9932671,
-          y: 2380007,
-          z: 1687219,
-          spatialReference: { wkid: 102100 }
-        },
-        heading: 0,
-        tilt: 35
-      },
-    });
-    if (view.environment.lighting !== undefined) {
-      view.environment.lighting.cameraTrackingEnabled = false;
-      view.environment.lighting.date = new Date();
-    }
-
-    ExternalRendererThree.start(view, new Example());
-[...]
-```
-
-The key lines are:
-```typescript
-[...]
-import Example from './Example';
-import { ExternalRendererThree } from "@philippkoelmel/arcgis-threejs-externalrenderer";
-[...]
-ExternalRendererThree.start(view, new Example());
-[...]
-```
-
-The [ExternalRendererThree.start](src/ExternalRendererThree.ts) method will fill in the boilerplate code for you and connect implementation with ArcGIS.

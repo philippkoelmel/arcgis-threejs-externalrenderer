@@ -3,7 +3,7 @@ import './ArcGIS.css';
 import Map from "@arcgis/core/Map";
 import SceneView from "@arcgis/core/views/SceneView";
 import config from "@arcgis/core/config";
-import GlobeFSThree from './GlobeFSThree';
+import Example from './Example';
 import { ExternalRendererThree } from "@philippkoelmel/arcgis-threejs-externalrenderer";
 
 export default class ArcGIS extends Component<{}> {
@@ -18,7 +18,8 @@ export default class ArcGIS extends Component<{}> {
     config.apiKey = process.env.REACT_APP_ARCGIS_APIKEY;
 
     const map = new Map({
-      basemap: "arcgis-light-gray"
+      basemap: "arcgis-topographic",
+      ground: "world-elevation"
     });
 
     const view = new SceneView({
@@ -37,12 +38,13 @@ export default class ArcGIS extends Component<{}> {
         tilt: 35
       },
     });
+
     if (view.environment.lighting !== undefined) {
-      view.environment.lighting.cameraTrackingEnabled = false;
-      view.environment.lighting.date = new Date();
+      view.environment.lighting.cameraTrackingEnabled = true;
+      //view.environment.lighting.date = new Date();
     }
 
-    ExternalRendererThree.start(view, new GlobeFSThree());
+    ExternalRendererThree.start(view, new Example());
   }
 
   render() {
