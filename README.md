@@ -1,6 +1,6 @@
 # Arcgis three.js external renderer
 
-Takes away the boilerplate from integrating Three.js to ArcGIS.
+Takes away the boilerplate from integrating Three.js to ArcGIS. See a the [example](./example) running live [here](https://philippkoelmel.github.io/arcgis-threejs-externalrenderer/).
 
 ## Install
 
@@ -10,7 +10,7 @@ npm install @philippkoelmel/arcgis-threejs-externalrenderer
 
 ## Usage
 
-Take a look at the [example](./example).
+The code here is from the [example](./example).
 
 This module exposes a convenient wrapper around ArcGIS's [externalRenderers](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-3d-externalRenderers.html) and an interface which you implement to manage your Three.js scene.
 
