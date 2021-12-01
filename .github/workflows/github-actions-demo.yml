@@ -13,11 +13,11 @@ jobs:
         env:
           REACT_APP_ARCGIS_APIKEY: ${{ secrets.REACT_APP_ARCGIS_APIKEY }}
         run: |
-          echo $REACT_APP_ARCGIS_APIKEY
+          npm install
+          npm run build
           cd example
           npm install
           npm run build
-
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
