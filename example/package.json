@@ -1,7 +1,7 @@
 {
   "name": "example",
   "license": "MIT",
-  "homepage": "https://github.com/philippkoelmel/arcgis-threejs-externalrenderer",
+  "homepage": "https://philippkoelmel.github.io/arcgis-threejs-externalrenderer/",
   "version": "0.1.0",
   "dependencies": {
     "@arcgis/core": "^4.21.2",
