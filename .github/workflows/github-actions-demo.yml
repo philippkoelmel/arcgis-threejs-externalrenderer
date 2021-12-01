@@ -13,6 +13,7 @@ jobs:
         env:
           REACT_APP_ARCGIS_APIKEY: ${{ secrets.REACT_APP_ARCGIS_APIKEY }}
         run: |
+          echo $REACT_APP_ARCGIS_APIKEY
           cd example
           npm install
           npm run build
