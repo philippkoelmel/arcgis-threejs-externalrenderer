@@ -1,2 +1,0 @@
-(this.webpackJsonpexample=this.webpackJsonpexample||[]).push([[227],{1024:function(c,e,t){"use strict";t.r(e);var a=t(691),i=t(655);Object(i.b)({"calcite-notice":a.b,"calcite-icon":a.a})}}]);
-//# sourceMappingURL=227.d7bdd86f.chunk.js.map
