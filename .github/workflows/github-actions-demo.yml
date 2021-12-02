@@ -15,16 +15,21 @@ jobs:
           path: |
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Install Package Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
       - name: Build Package
+        run: npm run build
+      - name: Install Example Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
+          cd example
           npm install
-          npm run build
       - name: Build Example
         env:
           REACT_APP_ARCGIS_APIKEY: ${{ secrets.REACT_APP_ARCGIS_APIKEY }}
         run: |
           cd example
-          npm install
           npm run build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
